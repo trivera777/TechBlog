@@ -9,7 +9,9 @@
     font-family: sans-serif;
     color: #333;
   }
-  
+  h1 {
+    font-size: 40px;
+  }
   a {
     text-decoration: none;
     font-weight: bold;
@@ -144,15 +146,7 @@
   .edit-post-form {
     margin-bottom: 5%;
   }
-  
-  footer {
-    border-top: 1px solid #ccc;
-    display: flex;
-    justify-content: center;
-    padding: 1%;
-    font-size: 110%;
-  }
-
+ 
   .card {
       margin-bottom: 1em;
       margin-top: 1em;
