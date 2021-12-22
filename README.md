@@ -11,7 +11,7 @@ I WANT a CMS-style blog site
 SO THAT I can publish articles, blog posts, and my thoughts and opinions
 ```
 
-### Installation Guidelines
+## Installation Guidelines
 
 - Add a .env file to the root of the project
 
@@ -20,6 +20,8 @@ DB_NAME='techblog_db'
 DB_USER='root'
 DB_PW='XXX'
 ```
+## Preview
+![Screen Shot of Tech Blog Application](./public/img/techblog.png)
 
 ## Deployment Link
 [Click here to start your blog](https://tr-techblog.herokuapp.com/)
