@@ -3,9 +3,7 @@ const { Post, User, Comment } = require('../../models');
 const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
-// get all users
 router.get('/', (req, res) => {
-    console.log('======================');
     Post.findAll({
         attributes: [
             'id',
@@ -15,24 +13,32 @@ router.get('/', (req, res) => {
         ],
       order: [['created_at', 'DESC']],
       include: [
-        // Comment model here -- attached username to comment
         {
           model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          attributes: [
+            'id', 
+            'comment_text', 
+            'post_id', 
+            'user_id', 
+            'created_at'
+          ],
           include: {
             model: User,
-            attributes: ['username', 'twitter', 'github']
+            attributes: [
+              'username'
+            ]
           }
         },
         {
           model: User,
-          attributes: ['username', 'twitter', 'github']
+          attributes: [
+            'username'
+          ]
         },
       ]
     })
       .then(dbPostData => res.json(dbPostData))
       .catch(err => {
-        console.log(err);
         res.status(500).json(err);
       });
   });
@@ -49,17 +55,26 @@ router.get('/', (req, res) => {
         'post_content'
       ],
       include: [
-        // include the Comment model here:
         {
           model: User,
-          attributes: ['username', 'twitter', 'github']
+          attributes: [
+            'username'
+          ]
         },
         {
           model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          attributes: [
+            'id', 
+            'comment_text', 
+            'post_id', 
+            'user_id', 
+            'created_at'
+          ],
           include: {
             model: User,
-            attributes: ['username', 'twitter', 'github']
+            attributes: [
+              'username'
+            ]
           }
         }
       ]
@@ -72,7 +87,6 @@ router.get('/', (req, res) => {
         res.json(dbPostData);
       })
       .catch(err => {
-        console.log(err);
         res.status(500).json(err);
       });
   });
@@ -85,7 +99,6 @@ router.post('/', withAuth, (req, res) => {
     })
       .then(dbPostData => res.json(dbPostData))
       .catch(err => {
-        console.log(err);
         res.status(500).json(err);
       });
 });
@@ -108,7 +121,6 @@ router.put('/:id', withAuth, (req, res) => {
         res.json(dbPostData);
       })
       .catch(err => {
-        console.log(err);
         res.status(500).json(err);
       });
   });
@@ -127,7 +139,6 @@ router.put('/:id', withAuth, (req, res) => {
         res.json(dbPostData);
       })
       .catch(err => {
-        console.log(err);
         res.status(500).json(err);
       });
   });
