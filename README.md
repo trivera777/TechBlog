@@ -20,8 +20,20 @@ DB_NAME='techblog_db'
 DB_USER='root'
 DB_PW='XXX'
 ```
-## Preview
+# Preview
 ![Screen Shot of Tech Blog Application](./public/img/techblog.png)
 
-## Deployment Link
+# Deployment Link
 [Click here to start your blog](https://tr-techblog.herokuapp.com/)
+
+
+# Built With
+- HTML
+- CSS
+- JavaScript
+- Node.js
+- Handlebars
+- MongoDB
+- Model View Controller (MVC)
+- dotenv
+- MySQL
